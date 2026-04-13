@@ -1,0 +1,23 @@
+[alias]
+    co = checkout
+    b = branch -avv
+    ci = commit
+    st = status
+    logo = log --graph --pretty=format:'%C(brightblue)%h%Creset →%C(green)%d%Creset %s %C(dim cyan)(%cr)%Creset %C(italic magenta)%an%Creset' --abbrev-commit
+    lb = !git reflog show --pretty=format:'%gs ~ %gd' --date=relative | grep 'checkout:' | grep -oE '[^ ]+ ~ .*' | awk -F~ '!seen[$1]++' | head -n 10 | awk -F' ~ HEAD@{' '{printf(\"  \\033[33m%s: \\033[37m %s\\033[0m\\n\", substr($2, 1, length($2)-1), $1)}'
+    list-untracked = !git fetch --prune && git branch -r | awk '{print $1}' | egrep -v -f /dev/fd/0 <(git branch -vv | grep origin) | awk '{print $1}'
+    remove-untracked = !git fetch --prune && git branch -r | awk '{print $1}' | egrep -v -f /dev/fd/0 <(git branch -vv | grep origin) | awk '{print $1}' | xargs git branch -d
+
+[branch]
+    autoSetupMerge = always
+
+[push]
+    default = current
+
+[core]
+    autocrlf = false
+    editor = nvim
+    excludesfile = ~/.gitignore_global
+
+[init]
+    defaultBranch = main

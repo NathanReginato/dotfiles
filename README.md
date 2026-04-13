@@ -1,32 +1,49 @@
-# Neovim Configuration
+# Dotfiles
 
-## Prerequisites
+Configuration files for Neovim, tmux, zsh, git, WezTerm, and utility scripts.
 
-- [Neovim](https://neovim.io/) >= 0.9
-- [Git](https://git-scm.com/)
-- [Node.js](https://nodejs.org/) and npm
-- [Go](https://go.dev/) (for Go LSP and formatters)
-- [.NET SDK](https://dotnet.microsoft.com/) (for OmniSharp / C# support)
-- A C compiler (for Treesitter parser compilation)
-- [ripgrep](https://github.com/BurntSushi/ripgrep) (for Telescope live grep)
+Designed to be mounted into a [Spaceship](https://github.com/NathanReginato/Spaceship) dev container and symlinked into place.
 
-## Installation
+## Structure
 
-Clone this repository to your Neovim config directory:
-
-```bash
-# Linux / macOS
-git clone https://github.com/<your-user>/nvim.git ~/.config/nvim
-
-# Windows
-git clone https://github.com/<your-user>/nvim.git $env:LOCALAPPDATA\nvim
+```
+dotfiles/
+├── nvim/           # Neovim config (lazy.nvim)
+├── tmux/           # tmux config (TPM + Kanagawa Dragon)
+├── zsh/            # zshrc (oh-my-zsh)
+├── git/            # gitconfig (aliases, settings)
+├── wezterm/        # WezTerm config (host terminal)
+├── scripts/        # Utility scripts (colors, etc.)
+└── install.sh      # Symlinks everything into ~
 ```
 
-Open Neovim. lazy.nvim will bootstrap itself and install all plugins automatically on first launch.
+## Usage
 
-## External Dependencies
+### Inside a Spaceship container
 
-Plugins are managed by lazy.nvim and install automatically on startup. The tools below must be installed separately.
+The dotfiles repo is mounted at `~/dotfiles`. On first run:
+
+```bash
+~/dotfiles/install.sh
+```
+
+This creates symlinks from `~/.config/nvim`, `~/.tmux.conf`, `~/.zshrc`, `~/.gitconfig`, and `~/.local/bin/*` into the mounted repo. Edits go directly to the repo — commit and push from inside the container.
+
+### On the host (WezTerm)
+
+Symlink or copy `wezterm/wezterm.lua` to `~/.config/wezterm/wezterm.lua`.
+
+## Neovim
+
+### Prerequisites
+
+- Neovim >= 0.9
+- Node.js and npm
+- .NET SDK (for OmniSharp / C# support)
+- A C compiler (for Treesitter parser compilation)
+- ripgrep (for Telescope live grep)
+
+Open Neovim after install. lazy.nvim will bootstrap itself and install all plugins automatically on first launch.
 
 ### LSP Servers (npm)
 
@@ -50,33 +67,14 @@ go install github.com/golangci/golangci-lint/cmd/golangci-lint@latest
 go install github.com/sqls-server/sqls@latest
 ```
 
-### LSP Servers (other)
-
-```bash
-# Lua language server
-# Install lua-language-server from https://github.com/LuaLS/lua-language-server
-
-# Terraform
-# Install terraform-ls from https://github.com/hashicorp/terraform-ls
-
-# Markdown
-# Install marksman from https://github.com/artempyanykh/marksman
-
-# C# / .NET (OmniSharp)
-# Install OmniSharp from https://github.com/OmniSharp/omnisharp-roslyn
-# Update the path in lua/plugins/lsp.lua to match your OmniSharp install location
-```
-
 ### Formatters
 
 ```bash
 # Lua
 cargo install stylua
-# or: brew install stylua
 
 # Go
 go install golang.org/x/tools/cmd/goimports@latest
-# gofmt ships with the Go toolchain
 
 # Prettier (JS/TS/CSS/HTML/JSON/YAML/Markdown/GraphQL)
 npm i -g @fsouza/prettierd
