@@ -80,10 +80,3 @@ go install golang.org/x/tools/cmd/goimports@latest
 npm i -g @fsouza/prettierd
 ```
 
-### AI Completion
-
-The `cmp-ai` plugin requires an OpenAI API key:
-
-```bash
-export OPENAI_API_KEY="your-key-here"
-```

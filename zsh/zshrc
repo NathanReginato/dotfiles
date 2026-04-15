@@ -1,6 +1,12 @@
 # ---- oh-my-zsh ----
 export ZSH="$HOME/.oh-my-zsh"
-ZSH_THEME="agnoster"
+
+# Kanagawa Dragon theme (symlinked from dotfiles)
+if [ -f "$HOME/dotfiles/zsh/kanagawa.zsh-theme" ]; then
+    ln -sf "$HOME/dotfiles/zsh/kanagawa.zsh-theme" "$ZSH/custom/themes/kanagawa.zsh-theme"
+fi
+ZSH_THEME="kanagawa"
+
 plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
 source $ZSH/oh-my-zsh.sh
 
