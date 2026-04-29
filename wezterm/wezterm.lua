@@ -8,12 +8,12 @@ config.font_size = 12.0
 -- Theme
 config.color_scheme = "Kanagawa Dragon (Gogh)"
 config.window_background_opacity = 1.0
-config.hide_tab_bar_if_only_one_tab = true
+config.enable_tab_bar = false
 config.window_padding = {
-	left = 4,
-	right = 4,
-	top = 4,
-	bottom = 4,
+	left = 12,
+	right = 12,
+	top = 8,
+	bottom = 8,
 }
 
 -- Shell
