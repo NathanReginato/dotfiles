@@ -18,6 +18,12 @@ echo "  -> nvim"
 ln -sf "$DOTFILES_DIR/tmux/tmux.conf" "$HOME_DIR/.tmux.conf"
 echo "  -> tmux"
 
+# spotify-player
+mkdir -p "$HOME_DIR/.config/spotify-player"
+ln -sf "$DOTFILES_DIR/spotify-player/app.toml" "$HOME_DIR/.config/spotify-player/app.toml"
+ln -sf "$DOTFILES_DIR/spotify-player/theme.toml" "$HOME_DIR/.config/spotify-player/theme.toml"
+echo "  -> spotify-player"
+
 # zsh
 ln -sf "$DOTFILES_DIR/zsh/zshrc" "$HOME_DIR/.zshrc"
 echo "  -> zsh"
