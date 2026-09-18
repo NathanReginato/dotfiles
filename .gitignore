@@ -1,1 +1,4 @@
 omnisharp-*
+nvim/omnisharp/
+.temp
+.claude/
