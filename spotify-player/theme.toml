@@ -39,3 +39,4 @@ secondary_row = { fg = "#a6a69c" }
 like = { fg = "#a292a3" }
 lyrics_played = { fg = "#737c73", modifiers = ["Dim"] }
 lyrics_playing = { fg = "#b6927b", modifiers = ["Bold"] }
+visualization = { low = "#8ba4b0", mid = "#8a9a7b", high = "#c4746e" }
