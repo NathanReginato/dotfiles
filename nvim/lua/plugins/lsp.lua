@@ -239,7 +239,7 @@ return {
 
 			require("lspconfig").omnisharp.setup({
 
-				cmd = { "dotnet", "/Users/Nate/.config/nvim/omnisharp-osx-arm64-net6.0/OmniSharp.dll" },
+				cmd = { "dotnet", vim.fn.expand("~/.config/nvim/omnisharp/OmniSharp.dll") },
 				on_attach = on_attach_c_sharp,
 				settings = {
 					FormattingOptions = {
@@ -282,7 +282,7 @@ return {
 			})
 
 			require("lspconfig").sqls.setup({
-				cmd = { "sqls", "-config", "/Users/Nate/.config/nvim/lua/plugins/sqls.yaml" },
+				cmd = { "sqls", "-config", vim.fn.expand("~/.config/nvim/lua/plugins/sqls.yaml") },
 			})
 		end,
 	},
