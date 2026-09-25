@@ -1,0 +1,5 @@
+{
+  "name": "marksman-lsp",
+  "version": "1.0.0",
+  "description": "Marksman language server for .md / .markdown"
+}

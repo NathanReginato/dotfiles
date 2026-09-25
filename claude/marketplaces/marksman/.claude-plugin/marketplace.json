@@ -1,0 +1,11 @@
+{
+  "name": "marksman-local",
+  "owner": { "name": "Nate" },
+  "plugins": [
+    {
+      "name": "marksman-lsp",
+      "source": "./plugins/marksman-lsp",
+      "description": "Marksman LSP for Markdown"
+    }
+  ]
+}
